@@ -2,9 +2,9 @@ name: Prettier
 
 on:
   push:
-    branches: [ "gha" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "gha"]
+    branches: [ "main"]
 
 jobs:
   prettier-check:
