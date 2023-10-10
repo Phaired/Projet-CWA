@@ -16,5 +16,5 @@ jobs:
         with:
           node-version: '20.x'
       - run: cd Client && ls
-      - run: npm ci
+      - run: ls && npm ci
       - run: npm run test-format
