@@ -1,15 +1,14 @@
 name: Prettier
 
 on:
-  pull_request:
-    branches:
-      - gha
   push:
-    branches:
-      - gha
+    branches: [ "gha" ]
+  pull_request:
+    branches: [ "gha"]
 
 jobs:
   prettier:
+    name: Prettier
     runs-on: ubuntu-latest
 
     steps:
