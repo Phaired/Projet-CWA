@@ -8,7 +8,12 @@ import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, ContactComponent, FooterComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        ContactComponent,
+        FooterComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent],
