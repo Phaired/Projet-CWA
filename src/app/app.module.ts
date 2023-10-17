@@ -8,7 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DatePickerComponent } from './components/datepicker/datepicker.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -19,7 +19,7 @@ import {FormsModule} from "@angular/forms";
         NavbarComponent,
         DatePickerComponent,
     ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })

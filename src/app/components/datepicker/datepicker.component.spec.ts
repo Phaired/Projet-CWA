@@ -3,19 +3,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePickerComponent } from './datepicker.component';
 
 describe('DatepickerComponent', () => {
-  let component: DatePickerComponent;
-  let fixture: ComponentFixture<DatePickerComponent>;
+    let component: DatePickerComponent;
+    let fixture: ComponentFixture<DatePickerComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [DatePickerComponent]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            declarations: [DatePickerComponent],
+        });
+        fixture = TestBed.createComponent(DatePickerComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
     });
-    fixture = TestBed.createComponent(DatePickerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
