@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit {
     sections = [
         { name: 'Home', route: '/' },
         { name: 'Tasks', route: '/tasks' },
-        { name: 'New Taks', route: '/create-task' },
+        { name: 'New Task', route: '/create-task' },
 
         { name: 'Contact', route: '/contact' },
 
