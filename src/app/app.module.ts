@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DatePickerComponent } from './components/datepicker/datepicker.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -15,8 +17,9 @@ import { NavbarComponent } from './navbar/navbar.component';
         ContactComponent,
         FooterComponent,
         NavbarComponent,
+        DatePickerComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })
