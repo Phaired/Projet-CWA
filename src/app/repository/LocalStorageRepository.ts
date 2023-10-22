@@ -13,7 +13,7 @@ export class LocalStorageRepository {
 
     constructor() {
         this.key = 'CADMIUM_TASKS';
-        window.localStorage.getItem(this.key) === undefined
+        window.localStorage.getItem(this.key) === null
             ? window.localStorage.setItem(
                   this.key,
                   JSON.stringify({
