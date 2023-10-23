@@ -11,7 +11,6 @@ export class NavbarComponent implements OnInit {
         { name: 'Home', route: '/' },
         { name: 'Tasks', route: '/tasks' },
         { name: 'New Task', route: '/create-task' },
-
         { name: 'Contact', route: '/contact' },
 
         // Add more sections and routes as needed
