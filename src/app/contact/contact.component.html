@@ -3,49 +3,11 @@
         Notre équipe
     </h1>
 
-    <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-16 mt-16"
-    >
-        <a
-            href="https://github.com/Yaon-C2H8N2"
-            class="bg-white p-6 rounded shadow-md mx-auto transition transform hover:scale-105 cursor-pointer hover:bg-blue-700 hover:text-white"
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-16 mt-16">
+        <a *ngFor="let contact of ContactList" href="{{contact.github}}"
+           class="w-64 bg-white p-6 rounded shadow-md mx-auto transition transform hover:scale-105 cursor-pointer hover:bg-blue-700 hover:text-white flex flex-col justify-center items-center"
         >
-            <h2 class="text-lg font-semibold text-center">Yoan DUSOLEIL</h2>
-        </a>
-
-        <a
-            href="https://github.com/Maxime-Cllt"
-            class="bg-white p-6 rounded shadow-md mx-auto transition transform hover:scale-105 cursor-pointer hover:bg-blue-700 hover:text-white"
-        >
-            <h2 class="text-lg font-semibold text-center">Maxime COLLIAT</h2>
-        </a>
-
-        <a
-            href="https://github.com/Phaired"
-            class="bg-white p-6 rounded shadow-md mx-auto transition transform hover:scale-105 cursor-pointer hover:bg-blue-700 hover:text-white"
-        >
-            <h2 class="text-lg font-semibold text-center">Rémy BARRANCO</h2>
-        </a>
-
-        <a
-            href="https://github.com/Sudo-Rahman"
-            class="bg-white p-6 rounded shadow-md mx-auto transition transform hover:scale-105 cursor-pointer hover:bg-blue-700 hover:text-white"
-        >
-            <h2 class="text-lg font-semibold text-center">Rahman YILMAZ</h2>
-        </a>
-
-        <a
-            href="https://github.com/JuliePrigent"
-            class="bg-white p-6 rounded shadow-md mx-auto transition transform hover:scale-105 cursor-pointer hover:bg-blue-700 hover:text-white"
-        >
-            <h2 class="text-lg font-semibold text-center">Julie PRIGENT</h2>
-        </a>
-
-        <a
-            href="https://github.com/BetulDSENER"
-            class="bg-white p-6 rounded shadow-md mx-auto transition transform hover:scale-105 cursor-pointer hover:bg-blue-700 hover:text-white"
-        >
-            <h2 class="text-lg font-semibold text-center">Betul SENER</h2>
+            <h2 class="text-lg font-semibold text-center">{{contact.name}}</h2>
         </a>
     </div>
 </div>
