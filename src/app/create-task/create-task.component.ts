@@ -44,13 +44,13 @@ export class CreateTaskComponent {
             this.description = '';
             this.color = Tache.colorToPriority(Priority.BASE);
             this.date = null;
-            // return true;
+            return true;
         }
-        console.log(
-            this.localStorageRepositoryService
-                .getLocalStorageRepository()
-                .getAllTaches(),
-        );
+        // console.log(
+        //     this.localStorageRepositoryService
+        //         .getLocalStorageRepository()
+        //         .getAllTaches(),
+        // );
         return false;
     }
     colorToPriority(priority: Priority): string {
