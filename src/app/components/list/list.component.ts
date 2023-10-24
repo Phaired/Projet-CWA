@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 
@@ -44,10 +44,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class ListComponent {
     protected task_list: any;
 
-    constructor(
-        private local_storage: LocalStorageRepositoryService,
-        private renderer: Renderer2,
-    ) {
+    constructor(private local_storage: LocalStorageRepositoryService) {
         this.task_list = this.local_storage
             .getLocalStorageRepository()
             .getAllTaches();
@@ -59,7 +56,7 @@ export class ListComponent {
     //     this.task_list = this.local_storage.getLocalStorageRepository().getAllTaches();
     // }
 
-    itemsPerPage: number = 4;
+    itemsPerPage: number = 16;
     currentPage: number = 1;
 
     get paginatedTasks(): any[] {

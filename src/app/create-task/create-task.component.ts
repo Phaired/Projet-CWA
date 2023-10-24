@@ -56,4 +56,24 @@ export class CreateTaskComponent {
     colorToPriority(priority: Priority): string {
         return Tache.colorToPriority(priority);
     }
+
+    create10() {
+        for (let i = 0; i < 10; i++) {
+            const task = new Tache(
+                this.localStorageRepositoryService
+                    .getLocalStorageRepository()
+                    .getLastId() + 1,
+                `Tâche ${i}`,
+                new Date(),
+                new Date(),
+                `Description de la tâche ${i}`,
+                Priority.BASE,
+                false,
+                Tache.colorToPriority(Priority.BASE),
+            );
+            this.localStorageRepositoryService
+                .getLocalStorageRepository()
+                .saveTache(task);
+        }
+    }
 }
