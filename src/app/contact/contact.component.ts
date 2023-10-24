@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
     ContactList = [
-        { name: 'Yoan DUSOLEIL', github: 'https://github.com/Yaon-C2H8N2' },
-        { name: 'Rémy BARRANCO', github: 'https://github.com/Phaired' },
-        { name: 'Maxime COLLIAT', github: 'https://github.com/Maxime-Cllt' },
         { name: 'Rahman YILMAZ', github: 'https://github.com/Sudo-Rahman' },
-        { name: 'Betul SENER', github: 'https://github.com/BetulDSENER' },
+        { name: 'Rémy BARRANCO', github: 'https://github.com/Phaired' },
         { name: 'Julie PRIGENT', github: 'https://github.com/JuliePrigent' },
+        { name: 'Yoan DUSOLEIL', github: 'https://github.com/Yaon-C2H8N2' },
+        { name: 'Maxime COLLIAT', github: 'https://github.com/Maxime-Cllt' },
+        { name: 'Betul SENER', github: 'https://github.com/BetulDSENER' },
     ];
 }

@@ -11,6 +11,7 @@ import { DatePickerComponent } from './components/datepicker/datepicker.componen
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
+import { ModifyTaskComponent } from './modify-task/modify-task.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { CreateTaskComponent } from './create-task/create-task.component';
         DatePickerComponent,
         CreateTaskComponent,
         ModalComponent,
+        ModifyTaskComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule],
     providers: [],
