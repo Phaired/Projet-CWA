@@ -40,20 +40,16 @@
     </button>
 
     <h2
-        [ngClass]="{
-            'text-emerald-400': task.priority == 1,
-            'text-yellow-400': task.priority == 2,
-            'text-red-500': task.priority == 3
-        }"
         class="text-lg font-semibold text-center"
+        [style]="{
+            color: task.color
+        }"
     >
         {{ getTask().intitule }}
     </h2>
 
     <ul class="p-3.5">
         <p class="text-center font-bold">{{ this.task.description }}</p>
-        <li class="list-disc">
-            Échéance : {{ getFormattedDate(getTask().date_fin) }}
-        </li>
+        <li class="list-disc">Échéance : {{ this.task.date_fin }}</li>
     </ul>
 </div>

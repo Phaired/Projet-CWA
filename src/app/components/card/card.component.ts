@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Tache } from '../../model/Tache';
 
 @Component({
     selector: 'app-card',
@@ -6,7 +7,16 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./card.component.css'],
 })
 export class CardComponent {
-    @Input() task: any;
+    @Input() task: Tache = new Tache(
+        1,
+        'test',
+        new Date(),
+        new Date(),
+        'test',
+        1,
+        false,
+        'red',
+    );
 
     getTask() {
         return this.task;
