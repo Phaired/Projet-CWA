@@ -49,8 +49,8 @@
         {{ getTask().intitule }}
     </h2>
 
-    <div>
-        <p class="text-center font-bold flex">{{ this.task.description }}</p>
+    <div class="max-h-[200px] overflow-y-auto">
+        <p class="text-center font-bold">{{ this.task.description }}</p>
         <p class="list-disc">Échéance : {{ this.task.date_fin }}</p>
     </div>
 </div>
