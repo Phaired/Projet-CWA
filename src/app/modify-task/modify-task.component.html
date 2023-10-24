@@ -1,0 +1,110 @@
+<div class="h-90v w-100">
+    <div class="grid justify-items-center">
+        <h1 class="text-4xl font-bold mb-4 mt-10">
+            Ajouter une <span class="text-blue-700"> Tâche </span>
+        </h1>
+
+        <br />
+
+        <div class="mb-6 w-4/12 grid justify-items-center">
+            <label
+                for="task-name"
+                class="block mb-2 text-lg font-medium text-gray-900"
+                >Nom de la tâche</label
+            >
+            <input
+                type="text"
+                id="task-name"
+                placeholder="Faire ses devoirs"
+                [(ngModel)]="tache.intitule"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+            />
+            <p class="text-red-700 text-sm" *ngIf="tache.intitule.length < 3">
+                Le nom de la tâche doit contenir au moins 3 caractères
+            </p>
+        </div>
+
+        <div class="mb-6 w-4/12 grid justify-items-center">
+            <label
+                for="description"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Description de la tâche</label
+            >
+            <textarea
+                id="description"
+                rows="4"
+                [(ngModel)]="tache.description"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Rendre le projet CWA"
+            ></textarea>
+            <p
+                class="text-red-700 text-sm"
+                *ngIf="tache.description.length < 10"
+            >
+                Le nom de la tâche doit contenir au moins 10 caractères
+            </p>
+        </div>
+
+        <div class="mb-6 w-4/12 grid justify-items-center">
+            <label
+                for="priority"
+                class="block mb-2 text-lg font-medium text-gray-900"
+                >Priorité : {{ tache.priority }}
+            </label>
+            <input
+                id="priority"
+                type="range"
+                min="1"
+                max="3"
+                step="1"
+                value="0"
+                [(ngModel)]="tache.priority"
+                (change)="tache.color = colorToPriority(tache.priority)"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+            />
+        </div>
+
+        <div class="mb-6 w-4/12 grid justify-items-center">
+            <label
+                for="date"
+                class="block mb-2 text-lg font-medium text-gray-900"
+                >Date de fin</label
+            >
+            <input
+                type="date"
+                id="date"
+                placeholder="2021-12-31"
+                [(ngModel)]="tache.date_fin"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+            />
+        </div>
+
+        <div class="mb-6 w-4/12 grid justify-items-center">
+            <label
+                for="color"
+                class="block mb-2 text-lg font-medium text-gray-900"
+                >Couleur de la tâche</label
+            >
+            <input
+                type="color"
+                id="color"
+                [(ngModel)]="tache.color"
+                [value]="tache.color"
+                class="h-12 block p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+        </div>
+
+        <div class="mb-6 w-4/12 grid justify-items-center">
+            <button
+                type="submit"
+                (click)="modifyTask()"
+                id="addTask"
+                class="text-white bg-blue-700 hover:bg-blue-800 click:bg-blue-900 hover:scale-110 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+                Modifier la Tâche
+            </button>
+        </div>
+    </div>
+</div>
