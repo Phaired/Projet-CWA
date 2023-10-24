@@ -1,1 +1,60 @@
-<p class="text-green-400">Welcome to Cadmium</p>
+<div class="h-5/6 flex flex-col items-center mb-4">
+    <h1 class="text-4xl font-bold mb-4 mt-10">
+        Bienvenue sur <span class="text-blue-700">Cadmium</span>
+    </h1>
+
+    <h2 class="text-4xl mt-7">
+        Vous avez
+        <span class="text-blue-700">{{ nb_task }}</span>
+        {{ nb_task > 1 ? 'tâches' : 'tâche' }}
+    </h2>
+    <app-modal>
+        <app-create-task />
+    </app-modal>
+    <button (click)="openModal()">Créer une tâche</button>
+    <div class="max-w-6xl mt-10">
+        <!-- Filtres -->
+        <div class="flex space-x-4 mb-4 justify-center">
+            <div>
+                <label for="filter-category">Statut :</label>
+                <select
+                    class="block w-32 py-2 px-4 bg-white rounded shadow-md"
+                    id="filter-category"
+                >
+                    <option value="statut0">Tous</option>
+                    <option value="statut1">En cours</option>
+                    <option value="statut2">Terminé</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="filter-price">Priorité :</label>
+                <select
+                    class="block w-32 py-2 px-4 bg-white rounded shadow-md"
+                    id="filter-price"
+                >
+                    <option value="priority0">Toutes</option>
+                    <option value="priority1">Faible</option>
+                    <option value="priority2">Moyenne</option>
+                    <option value="priority3">Haute</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="filter-sort">Trier par :</label>
+                <select
+                    class="block w-32 py-2 px-4 bg-white rounded shadow-md"
+                    id="filter-sort"
+                >
+                    <option value="sort0">Aucun tri</option>
+                    <option value="sort1">Date d'échéance</option>
+                    <option value="sort2">Priorité</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Liste d'éléments filtrés -->
+
+        <app-list></app-list>
+    </div>
+</div>

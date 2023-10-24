@@ -1,0 +1,75 @@
+<div
+    class="p-4 rounded shadow-2xl mx-auto ease-in-out transition transform cursor-pointer bg-white min-h-[150px]"
+    id="card"
+>
+    <!-- Bouton de suppression -->
+    <button
+        (click)="deleteTask()"
+        class="hidden-child absolute top-2 right-2 p-1 text-red-500 hover:text-red-700"
+    >
+        <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                clip-rule="evenodd"
+                d="M5.293 5.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z"
+                fill-rule="evenodd"
+            />
+        </svg>
+    </button>
+
+    <!-- Bouton de modification -->
+    <button
+        (click)="editTask()"
+        class="hidden-child absolute top-2 right-8 p-1 text-blue-500 hover:text-blue-700"
+    >
+        <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                clip-rule="evenodd"
+                d="M13.707 3.293a1 1 0 010 1.414L7.414 11H9a1 1 0 110 2H5a1 1 0 01-1-1V8a1 1 0 112 0v1.586l6.293-6.293a1 1 0 011.414 0z"
+                fill-rule="evenodd"
+            />
+        </svg>
+    </button>
+
+    <!-- Bouton "Fin de tâche" -->
+    <button
+        (click)="completeTask()"
+        class="hidden-child absolute top-2 right-14 p-1 text-green-500 hover:text-green-700"
+    >
+        <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                clip-rule="evenodd"
+                d="M13.293 6.293a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L14 8.414l-2.293 2.293a1 1 0 01-1.414-1.414l4-4z"
+                fill-rule="evenodd"
+            />
+        </svg>
+    </button>
+
+    <h2
+        [style]="{
+            color: task.color
+        }"
+        class="text-lg font-semibold text-center truncate"
+    >
+        {{ getTask().intitule }}
+    </h2>
+
+    <div class="max-h-[200px] overflow-y-auto">
+        <p class="text-center font-bold">{{ this.task.description }}</p>
+        <p class="list-disc">Échéance : {{ this.task.date_fin }}</p>
+    </div>
+</div>
