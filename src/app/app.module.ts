@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { DatePickerComponent } from './components/datepicker/datepicker.component';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
 import { ListComponent } from './components/list/list.component';
@@ -23,7 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ContactComponent,
         FooterComponent,
         NavbarComponent,
-        DatePickerComponent,
         CreateTaskComponent,
         ModalComponent,
         ModifyTaskComponent,
@@ -38,6 +36,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ],
     providers: [],
     bootstrap: [AppComponent],
-    exports: [DatePickerComponent],
+    exports: [],
 })
 export class AppModule {}
