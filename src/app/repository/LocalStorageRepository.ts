@@ -97,7 +97,9 @@ export class LocalStorageRepository {
 
     public updateTache(previousTache: Tache, newTache: Tache): void {
         const taches: Array<Tache> = this.getAllTaches();
-        const index: number = taches.indexOf(previousTache);
+        const index: number = taches.findIndex(
+            (tache: Tache) => tache.id == previousTache.id,
+        );
         taches[index] = newTache;
         window.localStorage.setItem(
             this.key,

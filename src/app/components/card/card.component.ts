@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Tache } from '../../model/Tache';
+import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 
 @Component({
     selector: 'app-card',
@@ -17,6 +18,8 @@ export class CardComponent {
         false,
         'red',
     );
+
+    constructor(private local_storage: LocalStorageRepositoryService) {}
 
     getTask() {
         return this.task;
@@ -41,5 +44,11 @@ export class CardComponent {
 
     deleteTask() {
         console.log('delete task');
+    }
+    completeTask() {
+        this.task.is_terminate = !this.task.is_terminate;
+        this.local_storage
+            .getLocalStorageRepository()
+            .updateTacheById(this.task.id, this.task);
     }
 }
