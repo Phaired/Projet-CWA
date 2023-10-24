@@ -5,7 +5,8 @@
 
     <h2 class="text-4xl mt-7">
         Vous avez
-        <a class="text-blue-700" href="/tasks">{{ nb_task }}</a> {{ nb_task > 1 ? 'tâches' : 'tâche'}}
+        <a class="text-blue-700" href="/tasks">{{ nb_task }}</a>
+        {{ nb_task > 1 ? 'tâches' : 'tâche' }}
     </h2>
     <app-modal>
         <app-create-task />
