@@ -24,7 +24,7 @@ export class ModifyTaskComponent {
         ) {
             this.localStorageRepositoryService
                 .getLocalStorageRepository()
-                .saveTache(this.tache);
+                .updateTacheById(this.tache.id, this.tache);
             return true;
         }
         return false;
