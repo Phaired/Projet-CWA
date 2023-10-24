@@ -44,13 +44,13 @@
         [style]="{
             color: task.color
         }"
-        class="text-lg font-semibold text-center"
+        class="text-lg font-semibold text-center truncate"
     >
         {{ getTask().intitule }}
     </h2>
 
-    <ul class="p-3.5">
+    <div class="max-h-[200px] overflow-y-auto">
         <p class="text-center font-bold">{{ this.task.description }}</p>
-        <li class="list-disc">Échéance : {{ this.task.date_fin }}</li>
-    </ul>
+        <p class="list-disc">Échéance : {{ this.task.date_fin }}</p>
+    </div>
 </div>

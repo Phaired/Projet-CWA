@@ -5,9 +5,10 @@ interface ITache {
     description: string;
     priority: number;
     is_terminate: boolean;
+    color: string;
 }
 
-export class Tache {
+export class Tache implements ITache {
     id: number;
     intitule: string;
     date_creation: Date;

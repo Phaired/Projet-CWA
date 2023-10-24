@@ -64,18 +64,29 @@ export class LocalStorageRepository {
             } as IExportTaches),
         );
     }
-
     public deleteTache(tache: Tache): void {
+        console.log(tache);
         const taches: Array<Tache> = this.getAllTaches();
-        const index: number = taches.indexOf(tache);
-        taches.splice(index, 1);
-        window.localStorage.setItem(
-            this.key,
-            JSON.stringify({
-                tasks: taches,
-                other: {},
-            } as IExportTaches),
+        const index: number = taches.findIndex(
+            (item: Tache) => item.id === tache.id,
         );
+
+        console.log('array => ', taches);
+        console.log(index);
+
+        if (index !== -1) {
+            taches.splice(index, 1);
+
+            window.localStorage.setItem(
+                this.key,
+                JSON.stringify({
+                    tasks: taches,
+                    other: {},
+                } as IExportTaches),
+            );
+        } else {
+            console.log('Task not found in the array.');
+        }
     }
 
     public deleteAllTaches(): void {

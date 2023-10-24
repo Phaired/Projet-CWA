@@ -1,6 +1,7 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { Tache } from '../../model/Tache';
 
 @Component({
     selector: 'app-list',
@@ -11,14 +12,14 @@ import { animate, style, transition, trigger } from '@angular/animations';
             transition(':leave', [
                 style({ transform: 'translateX(0)', opacity: 1 }),
                 animate(
-                    '0.7s ease-in-out',
+                    '0.3s ease-in-out',
                     style({ transform: 'translateX(-100vw)', opacity: 0 }),
                 ),
             ]),
             transition('* => left', [
                 style({ transform: 'translateX(-100vw)', opacity: 0 }),
                 animate(
-                    '0.7s ease-in-out',
+                    '0.3s ease-in-out',
                     style({ transform: 'translateX(0)', opacity: 1 }),
                 ),
             ]),
@@ -27,14 +28,14 @@ import { animate, style, transition, trigger } from '@angular/animations';
             transition(':leave', [
                 style({ transform: 'translateX(0)', opacity: 1 }),
                 animate(
-                    '0.7s ease-in-out',
+                    '0.3s ease-in-out',
                     style({ transform: 'translateX(100vw)', opacity: 0 }),
                 ),
             ]),
             transition('* => right', [
                 style({ transform: 'translateX(100vw)', opacity: 0 }),
                 animate(
-                    '0.7s ease-in-out',
+                    '0.3s ease-in-out',
                     style({ transform: 'translateX(0)', opacity: 1 }),
                 ),
             ]),
@@ -42,16 +43,17 @@ import { animate, style, transition, trigger } from '@angular/animations';
     ],
 })
 export class ListComponent {
-    protected task_list: any;
+    protected task_list: Tache[];
+    protected maxPage: number;
 
-    constructor(
-        private local_storage: LocalStorageRepositoryService,
-        private renderer: Renderer2,
-    ) {
+    constructor(private local_storage: LocalStorageRepositoryService) {
         this.task_list = this.local_storage
             .getLocalStorageRepository()
             .getAllTaches();
-
+        this.maxPage = Math.ceil(this.task_list.length / this.itemsPerPage);
+        if (this.maxPage === 0) {
+            this.maxPage = 1;
+        }
         // this.task_list = [];
     }
 
@@ -59,7 +61,7 @@ export class ListComponent {
     //     this.task_list = this.local_storage.getLocalStorageRepository().getAllTaches();
     // }
 
-    itemsPerPage: number = 4;
+    itemsPerPage: number = 12;
     currentPage: number = 1;
 
     get paginatedTasks(): any[] {
@@ -92,7 +94,7 @@ export class ListComponent {
             this.showNewCards = false;
             setTimeout(() => {
                 this.showCurrentCards = true;
-            }, 700);
+            }, 300);
         }
     }
 
@@ -102,7 +104,9 @@ export class ListComponent {
             this.showCurrentCards = false;
             setTimeout(() => {
                 this.showNewCards = true;
-            }, 700);
+            }, 300);
         }
     }
+
+    protected readonly Math = Math;
 }
