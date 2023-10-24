@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DatePickerComponent } from './components/datepicker/datepicker.component';
 import { FormsModule } from '@angular/forms';
+import { CreateTaskComponent } from './create-task/create-task.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
         FooterComponent,
         NavbarComponent,
         DatePickerComponent,
+        CreateTaskComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule],
     providers: [],
