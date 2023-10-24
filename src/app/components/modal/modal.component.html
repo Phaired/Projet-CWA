@@ -1,0 +1,6 @@
+<dialog #modalDialog (click)="closeModal()">
+    <div (click)="$event.stopPropagation()">
+        <ng-content />
+        <button (click)="closeModal()">Close</button>
+    </div>
+</dialog>
