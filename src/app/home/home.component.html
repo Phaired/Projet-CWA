@@ -6,7 +6,8 @@
     <h2 class="text-4xl mt-7">
         Vous avez <a href="/tasks" class="text-blue-700">xx</a> tâches
     </h2>
-
+    <app-modal><app-create-task /></app-modal>
+    <button (click)="openModal()">Créer une tâche</button>
     <div class="max-w-6xl mt-10">
         <!-- Filtres -->
         <div class="flex space-x-4 mb-4 justify-center">

@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DatePickerComponent } from './components/datepicker/datepicker.component';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 
 @NgModule({
@@ -20,9 +21,11 @@ import { CreateTaskComponent } from './create-task/create-task.component';
         NavbarComponent,
         DatePickerComponent,
         CreateTaskComponent,
+        ModalComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
+    exports: [DatePickerComponent],
 })
 export class AppModule {}
