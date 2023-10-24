@@ -1,0 +1,7 @@
+#card .hidden-child {
+    visibility: hidden;
+}
+
+#card:hover .hidden-child {
+    visibility: visible;
+}
