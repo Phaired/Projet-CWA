@@ -1,29 +1,39 @@
+<!-- Afficher un message si la liste des tâches est vide -->
 <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-11 mb-9"
+    *ngIf="task_list.length === 0"
+    class="text-center text-gray-500 mt-16"
+>
+    Aucune tâche n'est de planifiée pour le moment.
+</div>
+
+<!-- Liste des tâches -->
+<div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-11 mb-9"
 >
     <ng-container *ngIf="showCurrentCards">
         <app-card
-            [@prevCardAnimation]="'left'"
             *ngFor="
                 let task of task_list.slice(startIndex, endIndex);
                 let i = index
             "
+            [@prevCardAnimation]="'left'"
             [task]="task"
         ></app-card>
     </ng-container>
     <ng-container *ngIf="showNewCards">
         <app-card
-            [@nextCardAnimation]="'right'"
             *ngFor="
                 let task of task_list.slice(startIndex, endIndex);
                 let i = index
             "
+            [@nextCardAnimation]="'right'"
             [task]="task"
         ></app-card>
     </ng-container>
 </div>
 
-<div class="grid grid-cols-3 text-center">
+<!-- BOUTON SUIVANT/PRECEDENT -->
+<div *ngIf="task_list.length > 0" class="grid grid-cols-3 text-center">
     <button
         (click)="previousPage()"
         [disabled]="currentPage === 1"
@@ -31,7 +41,7 @@
     >
         Précédent
     </button>
-    <span class="col-span-1">Page {{ currentPage }}</span>
+    <span class="col-span-1">Page {{ currentPage }}/{{ maxPage }}</span>
     <button
         (click)="nextPage()"
         [disabled]="endIndex >= task_list.length"

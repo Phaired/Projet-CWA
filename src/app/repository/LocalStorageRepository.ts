@@ -67,7 +67,9 @@ export class LocalStorageRepository {
     public deleteTache(tache: Tache): void {
         console.log(tache);
         const taches: Array<Tache> = this.getAllTaches();
-        const index: number = taches.findIndex((item) => item.id === tache.id);
+        const index: number = taches.findIndex(
+            (item: Tache) => item.id === tache.id,
+        );
 
         console.log('array => ', taches);
         console.log(index);
