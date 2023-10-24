@@ -50,4 +50,10 @@ export class CardComponent {
     getBoxShadowColor(taskColor: string): string {
         return `0 0 10px ${taskColor}`;
     }
+    completeTask() {
+        this.task.is_terminate = !this.task.is_terminate;
+        this.local_storage
+            .getLocalStorageRepository()
+            .updateTacheById(this.task.id, this.task);
+    }
 }
