@@ -4,9 +4,11 @@
     </h1>
 
     <h2 class="text-4xl mt-7">
-        Vous avez <a href="/tasks" class="text-blue-700">xx</a> tâches
+        Vous avez<a class="text-blue-700" href="/tasks">{{ nb_task }}</a> tâches
     </h2>
-    <app-modal><app-create-task /></app-modal>
+    <app-modal>
+        <app-create-task />
+    </app-modal>
     <button (click)="openModal()">Créer une tâche</button>
     <div class="max-w-6xl mt-10">
         <!-- Filtres -->
@@ -14,8 +16,8 @@
             <div>
                 <label for="filter-category">Statut :</label>
                 <select
-                    id="filter-category"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
+                    id="filter-category"
                 >
                     <option value="statut0">Tous</option>
                     <option value="statut1">En cours</option>
@@ -26,8 +28,8 @@
             <div>
                 <label for="filter-price">Priorité :</label>
                 <select
-                    id="filter-price"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
+                    id="filter-price"
                 >
                     <option value="priority0">Toutes</option>
                     <option value="priority1">Faible</option>
@@ -39,8 +41,8 @@
             <div>
                 <label for="filter-sort">Trier par :</label>
                 <select
-                    id="filter-sort"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
+                    id="filter-sort"
                 >
                     <option value="sort0">Aucun tri</option>
                     <option value="sort1">Date d'échéance</option>
@@ -50,23 +52,7 @@
         </div>
 
         <!-- Liste d'éléments filtrés -->
-        <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-16"
-        >
-            <!-- Exemple d'élément -->
-            <div
-                class="bg-white p-4 rounded shadow-md mx-auto ease-in-out transition transform hover:scale-110 cursor-pointer hover:bg-blue-700 hover:text-white"
-            >
-                <h2 class="text-lg font-semibold text-center">
-                    Installer toolbox
-                </h2>
 
-                <ul class="p-3.5">
-                    <li class="list-disc">Priorité : Haute</li>
-                    <li class="list-disc">Statut : En cours</li>
-                    <li class="list-disc">Échéance : 12/12/2049</li>
-                </ul>
-            </div>
-        </div>
+        <app-list></app-list>
     </div>
 </div>

@@ -1,0 +1,59 @@
+<div
+    class="p-4 rounded shadow-2xl mx-auto ease-in-out transition transform cursor-pointer bg-white min-h-[150px]"
+>
+    <!-- Bouton de suppression -->
+    <button
+        (click)="deleteTask()"
+        class="absolute top-2 right-2 p-1 text-red-500 hover:text-red-700"
+    >
+        <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                clip-rule="evenodd"
+                d="M5.293 5.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z"
+                fill-rule="evenodd"
+            />
+        </svg>
+    </button>
+
+    <!-- Bouton de modification -->
+    <button
+        (click)="editTask()"
+        class="absolute top-2 right-8 p-1 text-blue-500 hover:text-blue-700"
+    >
+        <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                clip-rule="evenodd"
+                d="M13.707 3.293a1 1 0 010 1.414L7.414 11H9a1 1 0 110 2H5a1 1 0 01-1-1V8a1 1 0 112 0v1.586l6.293-6.293a1 1 0 011.414 0z"
+                fill-rule="evenodd"
+            />
+        </svg>
+    </button>
+
+    <h2
+        [ngClass]="{
+            'text-emerald-400': task.priority == 1,
+            'text-yellow-400': task.priority == 2,
+            'text-red-500': task.priority == 3
+        }"
+        class="text-lg font-semibold text-center"
+    >
+        {{ getTask().intitule }}
+    </h2>
+
+    <ul class="p-3.5">
+        <p class="text-center font-bold">{{ this.task.description }}</p>
+        <li class="list-disc">
+            Échéance : {{ getFormattedDate(getTask().date_fin) }}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,42 @@
+<div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-11 mb-9"
+>
+    <ng-container *ngIf="showCurrentCards">
+        <app-card
+            [@prevCardAnimation]="'left'"
+            *ngFor="
+                let task of task_list.slice(startIndex, endIndex);
+                let i = index
+            "
+            [task]="task"
+        ></app-card>
+    </ng-container>
+    <ng-container *ngIf="showNewCards">
+        <app-card
+            [@nextCardAnimation]="'right'"
+            *ngFor="
+                let task of task_list.slice(startIndex, endIndex);
+                let i = index
+            "
+            [task]="task"
+        ></app-card>
+    </ng-container>
+</div>
+
+<div class="grid grid-cols-3 text-center">
+    <button
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+        class="col-span-1 bg-blue-500 text-white py-2 px-4 rounded-full cursor-pointer hover:bg-blue-700"
+    >
+        Précédent
+    </button>
+    <span class="col-span-1">Page {{ currentPage }}</span>
+    <button
+        (click)="nextPage()"
+        [disabled]="endIndex >= task_list.length"
+        class="col-span-1 bg-blue-500 text-white py-2 px-4 rounded-full cursor-pointer hover:bg-blue-700"
+    >
+        Suivant
+    </button>
+</div>
