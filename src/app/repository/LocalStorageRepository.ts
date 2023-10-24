@@ -90,6 +90,11 @@ export class LocalStorageRepository {
         );
     }
 
+    public getTacheById(id: number): Tache {
+        const taches: Array<Tache> = this.getAllTaches();
+        return taches.find((tache: Tache) => tache.id === id) as Tache;
+    }
+
     public updateTache(previousTache: Tache, newTache: Tache): void {
         const taches: Array<Tache> = this.getAllTaches();
         const index: number = taches.indexOf(previousTache);
@@ -101,5 +106,10 @@ export class LocalStorageRepository {
                 other: {},
             } as IExportTaches),
         );
+    }
+
+    public updateTacheById(id: number, newTache: Tache): void {
+        const previousTache: Tache = this.getTacheById(id);
+        this.updateTache(previousTache, newTache);
     }
 }
