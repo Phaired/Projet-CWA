@@ -32,6 +32,11 @@ export class LocalStorageRepository {
         ).tasks;
     }
 
+    public getLastId(): number {
+        const taches: Array<Tache> = this.getAllTaches();
+        return taches.length > 0 ? taches[taches.length - 1].id : 0;
+    }
+
     public getAllTachesByDateCreation(order: number): Array<Tache> {
         const taches: Array<Tache> = this.getAllTaches();
         return taches.sort((a: Tache, b: Tache) => {
@@ -64,6 +69,18 @@ export class LocalStorageRepository {
         const taches: Array<Tache> = this.getAllTaches();
         const index: number = taches.indexOf(tache);
         taches.splice(index, 1);
+        window.localStorage.setItem(
+            this.key,
+            JSON.stringify({
+                tasks: taches,
+                other: {},
+            } as IExportTaches),
+        );
+    }
+
+    public deleteAllTaches(): void {
+        const taches: Array<Tache> = this.getAllTaches();
+        taches.splice(0, taches.length);
         window.localStorage.setItem(
             this.key,
             JSON.stringify({

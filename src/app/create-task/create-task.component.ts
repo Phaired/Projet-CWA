@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LocalStorageRepositoryService } from '../repository/local-storage-repository.service';
-import { Tache } from '../model/Tache';
+import { Tache, Priority } from '../model/Tache';
 
 @Component({
     selector: 'app-create-task',
@@ -9,7 +9,9 @@ import { Tache } from '../model/Tache';
 })
 export class CreateTaskComponent {
     name: string = '';
-    priority: number = 0;
+    description: string = '';
+    color: string = Tache.colorToPriority(Priority.BASE);
+    priority: number = Priority.BASE;
     date: Date | null = null;
 
     constructor(
@@ -17,23 +19,41 @@ export class CreateTaskComponent {
     ) {}
 
     createTask(): boolean {
-        if (this.name.length > 3 && this.date !== null) {
+        if (
+            this.name.length > 3 &&
+            this.date !== null &&
+            this.description.length > 10
+        ) {
             const task = new Tache(
+                this.localStorageRepositoryService
+                    .getLocalStorageRepository()
+                    .getLastId() + 1,
                 this.name,
                 new Date(),
                 this.date,
-                '',
+                this.description,
                 this.priority,
                 false,
+                this.color,
             );
             this.localStorageRepositoryService
                 .getLocalStorageRepository()
                 .saveTache(task);
             this.name = '';
             this.priority = 0;
+            this.description = '';
+            this.color = Tache.colorToPriority(Priority.BASE);
             this.date = null;
-            return true;
+            // return true;
         }
+        console.log(
+            this.localStorageRepositoryService
+                .getLocalStorageRepository()
+                .getAllTaches(),
+        );
         return false;
+    }
+    colorToPriority(priority: Priority): string {
+        return Tache.colorToPriority(priority);
     }
 }
