@@ -1,10 +1,11 @@
 <div
     class="p-4 rounded shadow-2xl mx-auto ease-in-out transition transform cursor-pointer bg-white min-h-[150px]"
+    id="card"
 >
     <!-- Bouton de suppression -->
     <button
         (click)="deleteTask()"
-        class="absolute top-2 right-2 p-1 text-red-500 hover:text-red-700"
+        class="hidden-child absolute top-2 right-2 p-1 text-red-500 hover:text-red-700"
     >
         <svg
             class="h-5 w-5"
@@ -23,7 +24,7 @@
     <!-- Bouton de modification -->
     <button
         (click)="editTask()"
-        class="absolute top-2 right-8 p-1 text-blue-500 hover:text-blue-700"
+        class="hidden-child absolute top-2 right-8 p-1 text-blue-500 hover:text-blue-700"
     >
         <svg
             class="h-5 w-5"
@@ -40,10 +41,10 @@
     </button>
 
     <h2
-        class="text-lg font-semibold text-center"
         [style]="{
             color: task.color
         }"
+        class="text-lg font-semibold text-center"
     >
         {{ getTask().intitule }}
     </h2>
