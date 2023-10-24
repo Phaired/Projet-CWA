@@ -9,9 +9,12 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DatePickerComponent } from './components/datepicker/datepicker.component';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './components/card/card.component';
+import { ListComponent } from './components/list/list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { ModifyTaskComponent } from './modify-task/modify-task.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -24,8 +27,15 @@ import { ModifyTaskComponent } from './modify-task/modify-task.component';
         CreateTaskComponent,
         ModalComponent,
         ModifyTaskComponent,
+        CardComponent,
+        ListComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
     exports: [DatePickerComponent],
