@@ -1,0 +1,41 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto eol=lf
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.ts text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+
+# Define binary files - they will get "LF" too, but shouldn't be modified.
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.eot binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+*.zip binary
+
+# Minified JavaScript files are often generated and can sometimes be treated
+# as binary to avoid unnecessary diffs.
+*.min.js binary
+*.bundle.js binary
+
+# Angular specific files
+*.component.html text eol=lf
+*.component.scss text eol=lf
+*.component.ts text eol=lf
+*.service.ts text eol=lf
+*.module.ts text eol=lf
+*.pipe.ts text eol=lf
+*.directive.ts text eol=lf
+
+# Consider .svg files as text and normalize them too
+*.svg text eol=lf
