@@ -109,6 +109,4 @@ export class ListComponent {
             }, 300);
         }
     }
-
-    protected readonly Math = Math;
 }
