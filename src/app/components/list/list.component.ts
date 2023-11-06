@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Tache } from '../../model/Tache';
@@ -43,13 +43,15 @@ import { Tache } from '../../model/Tache';
     ],
 })
 export class ListComponent {
-    protected task_list: Tache[];
+    // protected task_list: Tache[];
     protected maxPage: number;
 
+    @Input() task_list: Tache[] = [];
+
     constructor(private local_storage: LocalStorageRepositoryService) {
-        this.task_list = this.local_storage
-            .getLocalStorageRepository()
-            .getAllTaches();
+        // this.task_list = this.local_storage
+        //     .getLocalStorageRepository()
+        //     .getAllTaches();
         this.maxPage = Math.ceil(this.task_list.length / this.itemsPerPage);
         if (this.maxPage === 0) {
             this.maxPage = 1;

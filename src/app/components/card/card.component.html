@@ -70,6 +70,6 @@
 
     <div class="max-h-[200px] overflow-y-auto">
         <p class="text-center font-bold">{{ this.task.description }}</p>
-        <p class="list-disc">Échéance : {{ this.task.date_fin }}</p>
+        <p class="list-disc">{{ this.formatEndDate() }}</p>
     </div>
 </div>
