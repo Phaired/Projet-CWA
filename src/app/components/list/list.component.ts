@@ -107,5 +107,4 @@ export class ListComponent {
             }, 300);
         }
     }
-
 }
