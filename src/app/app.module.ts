@@ -14,6 +14,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { ModifyTaskComponent } from './modify-task/modify-task.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ModifyTaskComponent,
         CardComponent,
         ListComponent,
+        FilterComponent,
     ],
     imports: [
         BrowserModule,

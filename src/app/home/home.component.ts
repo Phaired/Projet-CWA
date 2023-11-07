@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ModalComponent } from '../components/modal/modal.component';
 import { LocalStorageRepositoryService } from '../repository/local-storage-repository.service';
 import { Tache } from '../model/Tache';
+import { FilterComponent } from '../components/filter/filter.component';
 
 @Component({
     selector: 'app-home',
@@ -12,6 +13,9 @@ export class HomeComponent {
     @ViewChild(ModalComponent, { static: false }) modalComponent:
         | ModalComponent
         | undefined;
+    @ViewChild(FilterComponent, { static: false }) filterComponent:
+        | FilterComponent
+        | undefined;
 
     selectedStatut: string = 'all';
     selectedPriority: string = 'all';
@@ -20,8 +24,6 @@ export class HomeComponent {
     openModal() {
         this.modalComponent?.openModal();
     }
-
-    protected nb_task: number = 0; // Nombre de tâches
 
     protected tasks_list: Tache[] = []; // Liste des tâches
 
@@ -33,23 +35,42 @@ export class HomeComponent {
         this.tasks_list = local_storage
             .getLocalStorageRepository()
             .getAllTaches();
+    }
 
-        this.nb_task = local_storage
-            .getLocalStorageRepository()
-            .getAllTaches().length;
+    onSelectChange(selectedValue: string, select: string) {
+        switch (select) {
+            case 'statut':
+                this.onSelectChangeStatut(selectedValue);
+                break;
+            case 'priority':
+                this.onSelectChangePriority(selectedValue);
+                break;
+            case 'sort':
+                this.onSelectChangeSort(selectedValue);
+                break;
+            default:
+                break;
+        }
     }
 
     /**
      * @brief Fonction qui permet de filtrer les tâches en fonction de la valeur sélectionnée dans le select de statut
      * @param selectedValue
      */
-    onSelectChangeStatut(selectedValue: string) {}
+    private onSelectChangeStatut(selectedValue: string) {
+        this.filterComponent?.updateFilter(
+            this.selectedSort,
+            selectedValue,
+            this.selectedPriority,
+            1,
+        );
+    }
 
     /**
      * @brief Fonction qui permet de filtrer les tâches en fonction de la valeur sélectionnée dans le select de priorité
      * @param selectedValue
      */
-    onSelectChangePriority(selectedValue: string) {
+    private onSelectChangePriority(selectedValue: string) {
         switch (selectedValue) {
             case 'all':
                 break;
@@ -58,13 +79,19 @@ export class HomeComponent {
             case 'high':
                 break;
         }
+        this.filterComponent?.updateFilter(
+            this.selectedSort,
+            this.selectedStatut,
+            selectedValue,
+            1,
+        );
     }
 
     /**
      * @brief Fonction qui permet de trier les tâches en fonction de la valeur sélectionnée dans le select de
      * @param selectedValue
      */
-    onSelectChangeSort(selectedValue: string) {
+    private onSelectChangeSort(selectedValue: string) {
         switch (selectedValue) {
             case 'none':
                 break;
@@ -75,6 +102,12 @@ export class HomeComponent {
             default:
                 break;
         }
+        this.filterComponent?.updateFilter(
+            selectedValue,
+            this.selectedStatut,
+            this.selectedPriority,
+            1,
+        );
     }
 
     createRandomTache(): Tache {
