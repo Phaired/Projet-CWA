@@ -40,9 +40,9 @@ export class LocalStorageRepository {
     public getAllTachesByDateCreation(order: number): Array<Tache> {
         const taches: Array<Tache> = this.getAllTaches();
         return taches.sort((a: Tache, b: Tache) => {
-            return (
-                (a.date_creation.getTime() - b.date_creation.getTime()) * order
-            );
+            const dateA = new Date(a.date_fin);
+            const dateB = new Date(b.date_fin);
+            return (dateA.getTime() - dateB.getTime()) * order;
         });
     }
 
@@ -64,6 +64,7 @@ export class LocalStorageRepository {
             } as IExportTaches),
         );
     }
+
     public deleteTache(tache: Tache): void {
         console.log(tache);
         const taches: Array<Tache> = this.getAllTaches();

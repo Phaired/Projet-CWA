@@ -50,10 +50,27 @@ export class CardComponent {
     getBoxShadowColor(taskColor: string): string {
         return `0 0 10px ${taskColor}`;
     }
+
     completeTask() {
         this.task.is_terminate = !this.task.is_terminate;
         this.local_storage
             .getLocalStorageRepository()
             .updateTacheById(this.task.id, this.task);
+    }
+
+    formatEndDate(): string {
+        const date = new Date(this.task.date_fin);
+        const hours = date.getUTCHours().toString().padStart(2, '0');
+        const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+        const seconds = date.getUTCSeconds().toString().padStart(2, '0');
+        const day = date.getUTCDate().toString().padStart(2, '0');
+        const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
+        const year = date.getUTCFullYear().toString();
+
+        return `Le ${day}/${month}/${year} à ${hours}:${minutes} `;
+    }
+
+    getColorForTask(task: Tache) {
+        return task.is_terminate ? '#889388' : task.color;
     }
 }
