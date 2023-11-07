@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Tache } from '../../model/Tache';
 
 @Component({
     selector: 'app-modal',
@@ -6,6 +7,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
     styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
+    @Input() task: Tache | undefined;
     @ViewChild('modalDialog') modalDialog:
         | ElementRef<HTMLDialogElement>
         | undefined;
@@ -22,6 +24,14 @@ export class ModalComponent implements OnInit {
     closeModal() {
         if (this.modalDialog && this.modalDialog.nativeElement) {
             this.modalDialog.nativeElement.close();
+        }
+    }
+
+    openModalTask(task: Tache) {
+        this.task = task;
+
+        if (this.modalDialog && this.modalDialog.nativeElement) {
+            this.modalDialog.nativeElement.showModal();
         }
     }
 }
