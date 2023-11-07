@@ -30,20 +30,25 @@ export class ListComponent {
     // protected task_list: Tache[];
     protected maxPage: number;
 
+    protected itemsPerPage: number = 12;
+    protected currentPage: number = 1;
+
     @Input() task_list: Tache[] = [];
 
     constructor(private local_storage: LocalStorageRepositoryService) {
-        // this.task_list = this.local_storage
-        //     .getLocalStorageRepository()
-        //     .getAllTaches();
         this.maxPage = Math.ceil(this.task_list.length / this.itemsPerPage);
         if (this.maxPage === 0) {
             this.maxPage = 1;
         }
     }
 
-    itemsPerPage: number = 12;
-    currentPage: number = 1;
+    get TotalPages(): number {
+        this.maxPage = Math.ceil(this.task_list.length / this.itemsPerPage);
+        if (this.maxPage === 0) {
+            this.maxPage = 1;
+        }
+        return this.maxPage;
+    }
 
     get paginatedTasks(): any[] {
         const startIndex = (this.currentPage - 1) * this.itemsPerPage;

@@ -67,6 +67,10 @@ export class CardComponent {
         const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
         const year = date.getUTCFullYear().toString();
 
-        return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
+        return `Le ${day}/${month}/${year} à ${hours}:${minutes} `;
+    }
+
+    getColorForTask(task: Tache) {
+        return task.is_terminate ? '#889388' : task.color;
     }
 }

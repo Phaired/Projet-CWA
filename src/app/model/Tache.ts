@@ -41,11 +41,11 @@ export class Tache implements ITache {
     public static colorToPriority(priority: Priority): string {
         switch (priority) {
             case Priority.BASE:
-                return '#00d4ff';
+                return '#38bdf8';
             case Priority.MEDIUM:
-                return '#ffa200';
+                return '#fbbf24';
             case Priority.HIGH:
-                return '#ff0000';
+                return '#dc2626';
         }
     }
 }
