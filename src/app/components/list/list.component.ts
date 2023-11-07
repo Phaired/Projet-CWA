@@ -11,11 +11,17 @@ import { Tache } from '../../model/Tache';
         trigger('slideAnimation', [
             transition('* => left', [
                 style({ transform: 'translateX(-100%)', opacity: 0 }),
-                animate('0.5s ease-in-out', style({ transform: 'translateX(0)', opacity: 1 })),
+                animate(
+                    '0.5s ease-in-out',
+                    style({ transform: 'translateX(0)', opacity: 1 }),
+                ),
             ]),
             transition('* => right', [
                 style({ transform: 'translateX(100%)', opacity: 0 }),
-                animate('0.5s ease-in-out', style({ transform: 'translateX(0)', opacity: 1 })),
+                animate(
+                    '0.5s ease-in-out',
+                    style({ transform: 'translateX(0)', opacity: 1 }),
+                ),
             ]),
         ]),
     ],
@@ -33,7 +39,6 @@ export class ListComponent {
             this.maxPage = 1;
         }
     }
-
 
     itemsPerPage: number = 12;
     currentPage: number = 1;
@@ -54,7 +59,6 @@ export class ListComponent {
     get endIndex(): number {
         return this.startIndex + this.itemsPerPage;
     }
-
 
     slideDirection: string = '';
 
