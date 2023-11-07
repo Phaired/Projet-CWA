@@ -5,11 +5,11 @@
 
     <h2 class="text-4xl mt-7">
         Vous avez
-        <span class="text-blue-700">{{ nb_task }}</span>
-        {{ nb_task > 1 ? 'tâches' : 'tâche' }}
+        <span class="text-blue-700">{{ tasks_list.length }}</span>
+        {{ tasks_list.length > 1 ? 'tâches' : 'tâche' }}
     </h2>
     <app-modal>
-        <app-create-task />
+        <app-create-task [task_list]=tasks_list />
     </app-modal>
     <button (click)="openModal()">Créer une tâche</button>
     <div class="max-w-6xl mt-10">
@@ -18,7 +18,7 @@
             <div>
                 <label for="filter-category">Statut :</label>
                 <select
-                    (ngModelChange)="onSelectChangeStatut($event)"
+                    (ngModelChange)="onSelectChange($event, 'statut')"
                     [(ngModel)]="selectedStatut"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
                     id="filter-category"
@@ -33,7 +33,7 @@
             <div>
                 <label for="filter-price">Priorité :</label>
                 <select
-                    (ngModelChange)="onSelectChangePriority($event)"
+                    (ngModelChange)="onSelectChange($event, 'priority')"
                     [(ngModel)]="selectedPriority"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
                     id="filter-price"
@@ -47,7 +47,7 @@
             <div>
                 <label for="filter-sort">Trier par :</label>
                 <select
-                    (ngModelChange)="onSelectChangeSort($event)"
+                    (ngModelChange)="onSelectChange($event, 'sort')"
                     [(ngModel)]="selectedSort"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
                     id="filter-sort"
@@ -60,7 +60,7 @@
         </div>
 
         <!-- Liste d'éléments filtrés -->
-
-        <app-list [task_list]="tasks_list"></app-list>
+        <app-filter [task_list]=tasks_list />
+        <app-list [task_list]=tasks_list />
     </div>
 </div>
