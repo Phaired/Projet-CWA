@@ -9,7 +9,7 @@
         {{ tasks_list.length > 1 ? 'tâches' : 'tâche' }}
     </h2>
     <app-modal>
-        <app-create-task [task_list]=tasks_list />
+        <app-create-task [task_list]="tasks_list" />
     </app-modal>
     <button (click)="openModal()">Créer une tâche</button>
     <div class="max-w-6xl mt-10">
@@ -60,7 +60,7 @@
         </div>
 
         <!-- Liste d'éléments filtrés -->
-        <app-filter [task_list]=tasks_list />
-        <app-list [task_list]=tasks_list />
+        <app-filter [task_list]="tasks_list" />
+        <app-list [task_list]="tasks_list" />
     </div>
 </div>
