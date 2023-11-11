@@ -37,15 +37,27 @@ export class LocalStorageRepository {
         return taches.length > 0 ? taches[taches.length - 1].id : 0;
     }
 
+    /**
+     * @deprecated
+     * This methode is no longer supported.
+     * <p> Use FilterComponent.orderBy(orderType, order) instead.
+     * @param order
+     */
     public getAllTachesByDateCreation(order: number): Array<Tache> {
         const taches: Array<Tache> = this.getAllTaches();
         return taches.sort((a: Tache, b: Tache) => {
-            return (
-                (a.date_creation.getTime() - b.date_creation.getTime()) * order
-            );
+            const dateA = new Date(a.date_fin);
+            const dateB = new Date(b.date_fin);
+            return (dateA.getTime() - dateB.getTime()) * order;
         });
     }
 
+    /**
+     * @deprecated
+     * This methode is no longer supported.
+     * <p> Use FilterComponent.orderBy(orderType, order) instead.
+     * @param order
+     */
     public getAllTachesByPriority(order: number): Array<Tache> {
         const taches: Array<Tache> = this.getAllTaches();
         return taches.sort((a: Tache, b: Tache) => {
@@ -64,6 +76,7 @@ export class LocalStorageRepository {
             } as IExportTaches),
         );
     }
+
     public deleteTache(tache: Tache): void {
         console.log(tache);
         const taches: Array<Tache> = this.getAllTaches();

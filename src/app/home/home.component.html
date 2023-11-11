@@ -5,11 +5,11 @@
 
     <h2 class="text-4xl mt-7">
         Vous avez
-        <span class="text-blue-700">{{ nb_task }}</span>
-        {{ nb_task > 1 ? 'tâches' : 'tâche' }}
+        <span class="text-blue-700">{{ tasks_list.length }}</span>
+        {{ tasks_list.length > 1 ? 'tâches' : 'tâche' }}
     </h2>
     <app-modal>
-        <app-create-task />
+        <app-create-task [task_list]="tasks_list" />
     </app-modal>
     <button (click)="openModal()">Créer une tâche</button>
     <div class="max-w-6xl mt-10">
@@ -18,43 +18,49 @@
             <div>
                 <label for="filter-category">Statut :</label>
                 <select
+                    (ngModelChange)="onSelectChange($event, 'statut')"
+                    [(ngModel)]="selectedStatut"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
                     id="filter-category"
+                    name="filterCategory"
                 >
-                    <option value="statut0">Tous</option>
-                    <option value="statut1">En cours</option>
-                    <option value="statut2">Terminé</option>
+                    <option value="all">Tous</option>
+                    <option value="on">En cours</option>
+                    <option value="finished">Terminé</option>
                 </select>
             </div>
 
             <div>
                 <label for="filter-price">Priorité :</label>
                 <select
+                    (ngModelChange)="onSelectChange($event, 'priority')"
+                    [(ngModel)]="selectedPriority"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
                     id="filter-price"
                 >
-                    <option value="priority0">Toutes</option>
-                    <option value="priority1">Faible</option>
-                    <option value="priority2">Moyenne</option>
-                    <option value="priority3">Haute</option>
+                    <option value="all">Toutes</option>
+                    <option value="weak">Faible</option>
+                    <option value="high">Haute</option>
                 </select>
             </div>
 
             <div>
                 <label for="filter-sort">Trier par :</label>
                 <select
+                    (ngModelChange)="onSelectChange($event, 'sort')"
+                    [(ngModel)]="selectedSort"
                     class="block w-32 py-2 px-4 bg-white rounded shadow-md"
                     id="filter-sort"
                 >
-                    <option value="sort0">Aucun tri</option>
-                    <option value="sort1">Date d'échéance</option>
-                    <option value="sort2">Priorité</option>
+                    <option value="none">Aucun tri</option>
+                    <option value="date">Date d'échéance</option>
+                    <option value="priority">Priorité</option>
                 </select>
             </div>
         </div>
 
         <!-- Liste d'éléments filtrés -->
-
-        <app-list></app-list>
+        <app-filter [task_list]="tasks_list" />
+        <app-list [task_list]="tasks_list" />
     </div>
 </div>

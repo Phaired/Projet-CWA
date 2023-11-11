@@ -7,30 +7,17 @@
 <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-11 mb-9"
 >
-    <ng-container *ngIf="showCurrentCards">
+    <ng-container>
         <app-card
-            *ngFor="
-                let task of task_list.slice(startIndex, endIndex);
-                let i = index
-            "
-            [@prevCardAnimation]="'left'"
-            [task]="task"
-        ></app-card>
-    </ng-container>
-    <ng-container *ngIf="showNewCards">
-        <app-card
-            *ngFor="
-                let task of task_list.slice(startIndex, endIndex);
-                let i = index
-            "
-            [@nextCardAnimation]="'right'"
+            *ngFor="let task of paginatedTasks; let i = index"
+            [@slideAnimation]="slideDirection"
             [task]="task"
         ></app-card>
     </ng-container>
 </div>
 
 <!-- BOUTON SUIVANT/PRECEDENT -->
-<div *ngIf="task_list.length > 0" class="grid grid-cols-3 text-center">
+<div *ngIf="TotalPages > 1" class="grid grid-cols-3 text-center">
     <button
         (click)="previousPage()"
         [disabled]="currentPage === 1"
@@ -38,7 +25,7 @@
     >
         Précédent
     </button>
-    <span class="col-span-1">Page {{ currentPage }}/{{ maxPage }}</span>
+    <span class="col-span-1">Page {{ currentPage }}/{{ TotalPages }}</span>
     <button
         (click)="nextPage()"
         [disabled]="endIndex >= task_list.length"
