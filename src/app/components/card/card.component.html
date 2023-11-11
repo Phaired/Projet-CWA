@@ -2,6 +2,7 @@
     class="p-4 rounded shadow-2xl mx-auto ease-in-out transition transform cursor-pointer bg-white min-h-[150px]"
     id="card"
 >
+    <app-modal #taskModal [task]="task"></app-modal>
     <!-- Bouton de suppression -->
     <button
         (click)="deleteTask()"
@@ -68,7 +69,7 @@
         {{ getTask().intitule }}
     </h2>
 
-    <div class="max-h-[200px] overflow-y-auto">
+    <div (click)="openTaskModal()" class="max-h-[200px] overflow-y-auto">
         <p class="text-center font-bold">{{ this.task.description }}</p>
         <p class="list-disc">Échéance : {{ this.task.date_fin }}</p>
     </div>
