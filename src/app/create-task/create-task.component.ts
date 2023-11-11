@@ -21,9 +21,9 @@ export class CreateTaskComponent {
 
     createTask(): boolean {
         if (
-            this.name.length > 3 &&
+            this.name.length >= 3 &&
             this.date !== null &&
-            this.description.length > 10
+            this.description.length >= 10
         ) {
             const task = new Tache(
                 this.localStorageRepositoryService

@@ -1,6 +1,13 @@
-import { Component, Input } from '@angular/core';
+import {
+    Component,
+    Input,
+    Output,
+    EventEmitter,
+    ViewChild,
+} from '@angular/core';
 import { Tache } from '../../model/Tache';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
     selector: 'app-card',
@@ -18,6 +25,9 @@ export class CardComponent {
         false,
         'red',
     );
+    @Output() getTaskDetails: EventEmitter<Tache> = new EventEmitter<Tache>();
+
+    @ViewChild(ModalComponent, { static: true }) taskModal!: ModalComponent;
 
     constructor(private local_storage: LocalStorageRepositoryService) {}
 
@@ -57,6 +67,14 @@ export class CardComponent {
             .getLocalStorageRepository()
             .updateTacheById(this.task.id, this.task);
     }
+
+
+    openTaskModal() {
+        this.taskModal.openModalTask(this.task);
+    }
+
+    sendTaskDetails() {
+        this.getTaskDetails.emit(this.task);
 
     formatEndDate(): string {
         const date = new Date(this.task.date_fin);
