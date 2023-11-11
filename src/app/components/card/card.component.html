@@ -77,7 +77,7 @@
     >
         {{ getTask().intitule }}
     </h2>
-  
+
     <div (click)="openTaskModal()" class="max-h-[200px] overflow-y-auto">
         <p class="text-center font-bold">{{ this.task.description }}</p>
         <p class="list-disc">Échéance : {{ this.task.date_fin }}</p>

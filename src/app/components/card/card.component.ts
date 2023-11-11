@@ -68,13 +68,13 @@ export class CardComponent {
             .updateTacheById(this.task.id, this.task);
     }
 
-
     openTaskModal() {
         this.taskModal.openModalTask(this.task);
     }
 
     sendTaskDetails() {
         this.getTaskDetails.emit(this.task);
+    }
 
     formatEndDate(): string {
         const date = new Date(this.task.date_fin);
