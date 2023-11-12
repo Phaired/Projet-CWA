@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Tache } from '../model/Tache';
-import { LocalStorageRepositoryService } from '../repository/local-storage-repository.service';
+import { Tache } from '../../model/Tache';
+import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 
 @Component({
     selector: 'app-modify-task',

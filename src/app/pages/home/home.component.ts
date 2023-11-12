@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { ModalComponent } from '../components/modal/modal.component';
-import { LocalStorageRepositoryService } from '../repository/local-storage-repository.service';
-import { Tache } from '../model/Tache';
-import { FilterComponent } from '../components/filter/filter.component';
+import { ModalComponent } from '../../components/modal/modal.component';
+import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
+import { Tache } from '../../model/Tache';
+import { FilterComponent } from '../../components/filter/filter.component';
 
 @Component({
     selector: 'app-home',
