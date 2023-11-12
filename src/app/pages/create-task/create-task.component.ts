@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { LocalStorageRepositoryService } from '../repository/local-storage-repository.service';
-import { Tache, Priority } from '../model/Tache';
+import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
+import { Tache, Priority } from '../../model/Tache';
 
 @Component({
     selector: 'app-create-task',
