@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Tache } from '../../model/Tache';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
-import { ModalComponent } from '../../components/modal/modal.component';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
     selector: 'app-card',
@@ -69,11 +69,7 @@ export class CardComponent {
     }
 
     openTaskModal() {
-        this.taskModal.openModalTask(this.task);
-    }
-
-    sendTaskDetails() {
-        this.getTaskDetails.emit(this.task);
+        this.taskModal.openModal();
     }
 
     formatEndDate(): string {
