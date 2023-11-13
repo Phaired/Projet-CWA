@@ -1,8 +1,8 @@
 import {
     Component,
+    EventEmitter,
     Input,
     Output,
-    EventEmitter,
     ViewChild,
 } from '@angular/core';
 import { Tache } from '../../model/Tache';
@@ -27,7 +27,11 @@ export class CardComponent {
     );
     @Output() getTaskDetails: EventEmitter<Tache> = new EventEmitter<Tache>();
 
-    @ViewChild(ModalComponent, { static: true }) taskModal!: ModalComponent;
+    @ViewChild('taskDetailModal', { static: true })
+    detailModal!: ModalComponent;
+
+    @ViewChild('taskModifyModal', { static: true })
+    taskModifyModal!: ModalComponent;
 
     constructor(private local_storage: LocalStorageRepositoryService) {}
 
@@ -49,7 +53,8 @@ export class CardComponent {
     }
 
     editTask() {
-        console.log('edit task');
+        this.taskModifyModal.openModal();
+        console.log('edit task' + this.task.id);
     }
 
     deleteTask() {
@@ -68,8 +73,8 @@ export class CardComponent {
             .updateTacheById(this.task.id, this.task);
     }
 
-    openTaskModal() {
-        this.taskModal.openModal();
+    openDetailModal() {
+        this.detailModal.openModal();
     }
 
     formatEndDate(): string {
