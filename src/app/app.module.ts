@@ -15,6 +15,7 @@ import { CreateTaskComponent } from './pages/create-task/create-task.component';
 import { ModifyTaskComponent } from './pages/modify-task/modify-task.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterComponent } from './components/filter/filter.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,8 @@ import { FilterComponent } from './components/filter/filter.component';
         CardComponent,
         ListComponent,
         FilterComponent,
+        DetailComponent,
+        DetailComponent,
     ],
     imports: [
         BrowserModule,

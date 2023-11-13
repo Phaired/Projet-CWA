@@ -1,0 +1,73 @@
+<div class="grid justify-items-center">
+    <div class="text-4xl font-bold mb-4 mt-10">
+        <h1 *ngIf="task" [style.color]="task.color">
+            {{ task.intitule }}
+        </h1>
+    </div>
+
+    <div class="mb-6 w-[500px] mx-auto">
+        <label
+            for="description"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+            <div
+                *ngIf="task"
+                class="bg-gray-800 p-3 text-white rounded-md"
+                style="max-height: 4em; overflow-y: auto; word-wrap: break-word"
+            >
+                <p class="text-left font-bold">{{ task.description }}</p>
+            </div>
+        </label>
+    </div>
+
+    <div class="mb-6 w-4/12 grid justify-items-center">
+        <label
+            *ngIf="task"
+            for="priority"
+            class="block mb-2 text-lg font-medium text-gray-900"
+        >
+            Priorité : {{ task.priority }}
+        </label>
+
+        <div
+            *ngIf="task"
+            class="relative w-full h-2 bg-gray-200 rounded-lg dark:bg-gray-700"
+        >
+            <div
+                class="absolute top-0 left-0 h-full"
+                [style.width.%]="task.priority * 33.33"
+            ></div>
+            <div
+                class="absolute top-0 transform -translate-x-2 -translate-y-1 w-4 h-4 rounded-full bg-white dark:bg-gray-300"
+                [style.left.%]="task.priority * 33.33 - 2"
+            ></div>
+        </div>
+    </div>
+
+    <div class="mb-6 w-4/12 grid justify-items-center">
+        <div *ngIf="task" class="flex items-center">
+            <label
+                for="date"
+                class="block mb-2 text-lg font-medium text-gray-900 flex-none mr-2"
+            >
+                Date de fin:
+            </label>
+            <p
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+                {{ task.date_fin }}
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-6 w-4/12 grid justify-items-center">
+        <label for="color" class="block mb-2 text-lg font-medium text-gray-900">
+            Couleur de la tâche
+        </label>
+        <div
+            *ngIf="task"
+            class="h-12 w-12 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600"
+            [style.backgroundColor]="task.color"
+        ></div>
+    </div>
+</div>

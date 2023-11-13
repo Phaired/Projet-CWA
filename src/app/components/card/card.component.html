@@ -11,7 +11,9 @@
     class="p-4 rounded shadow-2xl mx-auto ease-in-out transition transform cursor-pointer min-h-[150px]"
     id="card"
 >
-    <app-modal #taskModal [task]="task"></app-modal>
+    <app-modal #taskModal>
+        <app-detail [task]="task" />
+    </app-modal>
     <!-- Bouton de suppression -->
     <button
         (click)="deleteTask()"
