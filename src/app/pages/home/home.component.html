@@ -8,7 +8,7 @@
         <span class="text-blue-700">{{ tasks_list.length }}</span>
         {{ tasks_list.length > 1 ? 'tâches' : 'tâche' }}
     </h2>
-    <app-modal>
+    <app-modal #createTask>
         <app-create-task [task_list]="tasks_list" />
     </app-modal>
     <button (click)="openModal()">Créer une tâche</button>

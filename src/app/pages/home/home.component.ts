@@ -10,7 +10,7 @@ import { FilterComponent } from '../../components/filter/filter.component';
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-    @ViewChild(ModalComponent, { static: false }) modalComponent:
+    @ViewChild('createTask', { static: false }) createTaskModal:
         | ModalComponent
         | undefined;
     @ViewChild(FilterComponent, { static: false }) filterComponent:
@@ -22,7 +22,7 @@ export class HomeComponent {
     selectedSort: string = 'none';
 
     openModal() {
-        this.modalComponent?.openModal();
+        this.createTaskModal?.openModal();
     }
 
     protected tasks_list: Tache[] = []; // Liste des tâches

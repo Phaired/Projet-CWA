@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Tache } from '../../model/Tache';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 
@@ -8,14 +8,20 @@ import { LocalStorageRepositoryService } from '../../repository/local-storage-re
     styleUrls: ['./modify-task.component.css'],
 })
 export class ModifyTaskComponent {
-    tache: Tache;
+    @Input() tache: Tache = new Tache(
+        1,
+        'test',
+        new Date(),
+        new Date(),
+        'test',
+        1,
+        false,
+        'red',
+    );
 
     constructor(
-        tache: Tache,
         private localStorageRepositoryService: LocalStorageRepositoryService,
-    ) {
-        this.tache = tache;
-    }
+    ) {}
 
     modifyTask(): boolean {
         if (
