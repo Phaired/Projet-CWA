@@ -12,6 +12,7 @@
             *ngFor="let task of paginatedTasks; let i = index"
             [@slideAnimation]="slideDirection"
             [task]="task"
+            (deleteTask)="deleteTask($event)"
         ></app-card>
     </ng-container>
 </div>

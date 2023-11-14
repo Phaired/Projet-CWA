@@ -25,13 +25,15 @@ export class CardComponent {
         false,
         'red',
     );
+    @Input() task_list: Tache[] = [];
     @Output() getTaskDetails: EventEmitter<Tache> = new EventEmitter<Tache>();
-
+    @Output() deleteTask: EventEmitter<number> = new EventEmitter<number>();
     @ViewChild('taskDetailModal', { static: true })
     detailModal!: ModalComponent;
-
     @ViewChild('taskModifyModal', { static: true })
     taskModifyModal!: ModalComponent;
+    @ViewChild('taskDeleteModal', { static: true })
+    taskDeleteModal!: ModalComponent;
 
     constructor(private local_storage: LocalStorageRepositoryService) {}
 
@@ -57,9 +59,18 @@ export class CardComponent {
         console.log('edit task' + this.task.id);
     }
 
-    deleteTask() {
-        this.local_storage.getLocalStorageRepository().deleteTache(this.task);
-        console.log('delete task' + this.task.id);
+    showDeleteTaskModal() {
+        this.taskDeleteModal.openModal();
+    }
+
+    deleteTaskHandler(returnValue: number): void {
+        if (returnValue === 1) {
+            this.deleteTask.emit(this.task.id);
+            this.local_storage
+                .getLocalStorageRepository()
+                .deleteTache(this.task);
+            console.log('delete task' + this.task.id);
+        }
     }
 
     getBoxShadowColor(taskColor: string): string {

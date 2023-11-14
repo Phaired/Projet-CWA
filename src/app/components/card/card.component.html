@@ -13,7 +13,10 @@
 >
     <div class="absolute top-2 right-2 hidden-child flex justify-end flex-row">
         <!-- Bouton de suppression -->
-        <button (click)="deleteTask()" class="text-red-500 hover:text-red-700">
+        <button
+            (click)="showDeleteTaskModal()"
+            class="text-red-500 hover:text-red-700"
+        >
             <svg
                 class="h-4 w-5"
                 fill="#fff"
@@ -28,6 +31,14 @@
                 />
             </svg>
         </button>
+
+        <app-modal #taskDeleteModal>
+            <app-delete-task
+                (onConfirm)="
+                    deleteTaskHandler($event); taskDeleteModal.closeModal()
+                "
+            />
+        </app-modal>
 
         <!-- Bouton de modification -->
         <button (click)="editTask()" class="text-blue-500 hover:text-blue-700">

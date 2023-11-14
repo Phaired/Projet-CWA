@@ -35,7 +35,7 @@ export class ListComponent {
 
     @Input() task_list: Tache[] = [];
 
-    constructor(private local_storage: LocalStorageRepositoryService) {
+    constructor() {
         this.maxPage = Math.ceil(this.task_list.length / this.itemsPerPage);
         if (this.maxPage === 0) {
             this.maxPage = 1;
@@ -57,6 +57,11 @@ export class ListComponent {
 
     pageChanged(newPage: number): void {
         this.currentPage = newPage;
+    }
+
+    deleteTask(id: number) {
+        const index = this.task_list.findIndex((tache) => tache.id === id);
+        this.task_list.splice(index, 1);
     }
 
     get startIndex(): number {
