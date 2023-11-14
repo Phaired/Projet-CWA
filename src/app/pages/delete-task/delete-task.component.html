@@ -1,0 +1,18 @@
+<div class="grid justify-items-center">
+    <button
+        (click)="this.onConfirm.emit(1)"
+        class="text-white bg-red-700 hover:bg-red-800 click:bg-red-900 hover:scale-110 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+        id="addTask"
+        type="submit"
+    >
+        Supprimer
+    </button>
+    <button
+        (click)="this.onConfirm.emit(0)"
+        class="text-blue-700 hover:text-blue-800 click:text-blue-900 hover:scale-110 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:text-blue-700 dark:hover:text-blue-800 dark:focus:ring-blue-800"
+        id="cancelTask"
+        type="submit"
+    >
+        Annuler
+    </button>
+</div>
