@@ -1,6 +1,7 @@
 dialog {
-    width: 60%;
-    height: 70vh;
+    width: fit-content;
+    height: fit-content;
+    padding: 10vh;
 }
 
 .close-button {
