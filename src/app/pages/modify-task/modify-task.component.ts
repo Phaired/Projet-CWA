@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Tache } from '../../model/Tache';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 
@@ -18,6 +18,7 @@ export class ModifyTaskComponent {
         false,
         'red',
     );
+    @Output() onConfirm: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(
         private localStorageRepositoryService: LocalStorageRepositoryService,
@@ -31,6 +32,7 @@ export class ModifyTaskComponent {
             this.localStorageRepositoryService
                 .getLocalStorageRepository()
                 .updateTacheById(this.tache.id, this.tache);
+            this.onConfirm.emit(0);
             return true;
         }
         return false;

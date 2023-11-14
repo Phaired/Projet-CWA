@@ -46,7 +46,10 @@
         </button>
 
         <app-modal #taskModifyModal>
-            <app-modify-task [tache]="task" />
+            <app-modify-task
+                [tache]="task"
+                (onConfirm)="taskModifyModal.closeModal()"
+            />
         </app-modal>
 
         <!-- Bouton "Fin de tâche" -->
