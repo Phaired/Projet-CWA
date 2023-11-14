@@ -11,7 +11,13 @@
     <app-modal #createTask>
         <app-create-task [task_list]="tasks_list" />
     </app-modal>
-    <button (click)="openModal()">Créer une tâche</button>
+    <button
+        (click)="openModal()"
+        class="mt-9 ol-span-1 bg-blue-500 text-white py-2 px-4 rounded-full cursor-pointer hover:bg-blue-700"
+    >
+        Créer une tâche
+    </button>
+
     <div class="max-w-6xl mt-10">
         <!-- Filtres -->
         <div class="flex space-x-4 mb-4 justify-center">

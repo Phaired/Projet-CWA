@@ -77,16 +77,15 @@ export class CardComponent {
         this.detailModal.openModal();
     }
 
-    formatEndDate(): string {
-        const date = new Date(this.task.date_fin);
+    formatDate(dateToConvert: Date): string {
+        const date = new Date(dateToConvert);
         const hours = date.getUTCHours().toString().padStart(2, '0');
         const minutes = date.getUTCMinutes().toString().padStart(2, '0');
         const seconds = date.getUTCSeconds().toString().padStart(2, '0');
         const day = date.getUTCDate().toString().padStart(2, '0');
         const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
         const year = date.getUTCFullYear().toString();
-
-        return `Le ${day}/${month}/${year} à ${hours}:${minutes} `;
+        return `${day}/${month}/${year} à ${hours}:${minutes}`;
     }
 
     getColorForTask(task: Tache) {
