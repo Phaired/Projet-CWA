@@ -16,15 +16,15 @@
         <button (click)="deleteTask()" class="text-red-500 hover:text-red-700">
             <svg
                 class="h-4 w-5"
-                stroke="currentColor"
                 fill="#fff"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
-                    stroke-width="2px"
                     clip-rule="evenodd"
                     d="M10 12L14 16M14 12L10 16M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6"
+                    stroke-width="2px"
                 />
             </svg>
         </button>
@@ -64,8 +64,8 @@
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
-                    d="M1743.858 267.012 710.747 1300.124 176.005 765.382 0 941.387l710.747 710.871 1209.24-1209.116z"
                     clip-rule="evenodd"
+                    d="M1743.858 267.012 710.747 1300.124 176.005 765.382 0 941.387l710.747 710.871 1209.24-1209.116z"
                     fill-rule="evenodd"
                 />
             </svg>
@@ -84,11 +84,11 @@
 
         <div class="max-h-[200px] overflow-y-auto">
             <p class="text-center font-bold">{{ this.task.description }}</p>
-            <p class="list-disc">Échéance : {{ this.task.date_fin }}</p>
         </div>
-        <p class="absolute bottom-1 left-0 right-0 text-center">
-            {{ this.formatEndDate() }}
-        </p>
+        <div class="absolute bottom-1 left-0 right-0 text-center">
+            <p>Crée le : {{ this.formatDate(this.task.date_creation) }}</p>
+            <p>Pour le {{ this.formatDate(this.task.date_fin) }}</p>
+        </div>
     </div>
 </div>
 <app-modal #taskDetailModal>

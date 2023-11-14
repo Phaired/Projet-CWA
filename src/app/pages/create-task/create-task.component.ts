@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
-import { Tache, Priority } from '../../model/Tache';
+import { Priority, Tache } from '../../model/Tache';
 
 @Component({
     selector: 'app-create-task',
@@ -60,35 +60,10 @@ export class CreateTaskComponent {
             this.onConfirm.emit(0);
             return true;
         }
-        // console.log(
-        //     this.localStorageRepositoryService
-        //         .getLocalStorageRepository()
-        //         .getAllTaches(),
-        // );
         return false;
     }
 
     colorToPriority(priority: Priority): string {
         return Tache.colorToPriority(priority);
-    }
-
-    create10() {
-        for (let i = 0; i < 10; i++) {
-            const task = new Tache(
-                this.localStorageRepositoryService
-                    .getLocalStorageRepository()
-                    .getLastId() + 1,
-                `Tâche ${i}`,
-                new Date(),
-                new Date(),
-                `Description de la tâche ${i}`,
-                Priority.BASE,
-                false,
-                Tache.colorToPriority(Priority.BASE),
-            );
-            this.localStorageRepositoryService
-                .getLocalStorageRepository()
-                .saveTache(task);
-        }
     }
 }
