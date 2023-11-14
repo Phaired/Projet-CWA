@@ -54,6 +54,12 @@ export class ModifyTaskComponent implements OnInit {
         this.tache = Tache.fromTache(this.tacheToModify);
     }
 
+    cancel(): void {
+        //raz des champs
+        this.tache = Tache.fromTache(this.tacheToModify);
+        this.onConfirm.emit(1);
+    }
+
     colorToPriority(priority: number): string {
         return Tache.colorToPriority(priority);
     }
