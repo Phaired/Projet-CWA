@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 import { Priority, Tache } from '../../model/Tache';
 
@@ -9,6 +9,7 @@ import { Priority, Tache } from '../../model/Tache';
 })
 export class CreateTaskComponent {
     @Input() task_list: Tache[] = [];
+    @Output() onConfirm: EventEmitter<number> = new EventEmitter<number>();
     name: string = '';
     description: string = '';
     color: string = Tache.colorToPriority(Priority.BASE);
@@ -51,12 +52,12 @@ export class CreateTaskComponent {
                     this.task_list.push(tache);
                 }
             });
-            console.log('Update de la task list passée en paramètre');
             this.name = '';
             this.priority = 0;
             this.description = '';
             this.color = Tache.colorToPriority(Priority.BASE);
             this.date = null;
+            this.onConfirm.emit(0);
             return true;
         }
         return false;
