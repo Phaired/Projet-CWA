@@ -48,6 +48,19 @@ export class Tache implements ITache {
                 return '#dc2626';
         }
     }
+
+    public static fromTache(tache: Tache): Tache {
+        return new Tache(
+            tache.id,
+            tache.intitule,
+            tache.date_creation,
+            tache.date_fin,
+            tache.description,
+            tache.priority,
+            tache.is_terminate,
+            tache.color,
+        );
+    }
 }
 
 export enum Priority {
