@@ -1,4 +1,4 @@
-<dialog #modalDialog (click)="closeModal()" class="max-w-screen-sm">
+<dialog #modalDialog (click)="closeModal()" class="max-w-screen-sm rounded-lg">
     <div (click)="$event.stopPropagation()">
         <ng-content></ng-content>
         <button (click)="closeModal()" class="close-button">
