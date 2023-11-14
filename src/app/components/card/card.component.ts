@@ -41,19 +41,6 @@ export class CardComponent {
         return this.task;
     }
 
-    /**
-     * Récupère la date formatée (jj/mm/aaaa) d'une tâche (date de création ou de modification) et la retourne sous forme de chaîne de caractères (string)
-     * @param date - Date de création ou de modification d'une tâche (format ISO) (ex: 2021-01-01T00:00:00.000Z)
-     */
-    getFormattedDate(date: string) {
-        const day = new Date(date).getDate().toString().padStart(2, '0');
-        const month = (new Date(date).getMonth() + 1)
-            .toString()
-            .padStart(2, '0');
-        const year = new Date(date).getFullYear();
-        return `${day}/${month}/${year}`;
-    }
-
     editTask() {
         this.taskModifyModal.openModal();
         console.log('edit task' + this.task.id);
@@ -71,10 +58,6 @@ export class CardComponent {
                 .deleteTache(this.task);
             console.log('delete task' + this.task.id);
         }
-    }
-
-    getBoxShadowColor(taskColor: string): string {
-        return `0 0 10px ${taskColor}`;
     }
 
     completeTask() {
@@ -96,10 +79,6 @@ export class CardComponent {
         const day = date.getUTCDate().toString().padStart(2, '0');
         const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
         const year = date.getUTCFullYear().toString();
-        return `${day}/${month}/${year} à ${hours}:${minutes}`;
-    }
-
-    getColorForTask(task: Tache) {
-        return task.is_terminate ? '#889388' : task.color;
+        return `${day}/${month}/${year} à ${hours}h${minutes}`;
     }
 }

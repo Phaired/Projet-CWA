@@ -38,6 +38,11 @@ export class HomeComponent {
     }
 
     onSelectChange(selectedValue: string, select: string) {
+        let listTaskTemp = this.local_storage
+            .getLocalStorageRepository()
+            .getAllTaches();
+        this.tasks_list.splice(0, this.tasks_list.length);
+        listTaskTemp.map((tache) => this.tasks_list.push(tache));
         switch (select) {
             case 'statut':
                 this.onSelectChangeStatut(selectedValue);
