@@ -93,8 +93,10 @@
             {{ getTask().intitule }}
         </h2>
 
-        <div class="max-h-[200px] overflow-y-auto">
-            <p class="text-center font-bold">{{ this.task.description }}</p>
+        <div class="max-h-[200px]">
+            <p class="text-center max-h-[25px] font-bold overflow-hidden">
+                {{ this.task.description }}
+            </p>
         </div>
         <div class="absolute bottom-1 left-0 right-0 text-center">
             <p>Crée le : {{ this.formatDate(this.task.date_creation) }}</p>
