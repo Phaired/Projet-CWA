@@ -1,6 +1,14 @@
 <div class="grid justify-items-center">
     <div class="text-4xl font-bold mb-4 mt-10">
-        <h1 *ngIf="task" [style.color]="task.color">
+        <h1
+            *ngIf="task"
+            [style.color]="task.color"
+            style="
+                max-width: 500px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            "
+        >
             {{ task.intitule }}
         </h1>
     </div>
