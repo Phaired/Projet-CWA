@@ -1,6 +1,6 @@
 <div
     [style]="{
-        borderColor: getColorForTask(getTask()),
+        borderColor: task.is_terminate ? '#889388' : task.color,
         borderWidth: '1px',
         borderStyle: 'solid',
         backgroundColor: getTask().is_terminate ? '#e2e8f0' : '#fff',
@@ -58,8 +58,8 @@
 
         <app-modal #taskModifyModal>
             <app-modify-task
-                [tacheToModify]="task"
                 (onConfirm)="taskModifyModal.closeModal()"
+                [tacheToModify]="task"
             />
         </app-modal>
 
@@ -86,7 +86,7 @@
     <div (click)="openDetailModal()">
         <h2
             [style]="{
-                color: getColorForTask(getTask())
+                color: task.is_terminate ? '#889388' : task.color
             }"
             class="text-lg font-semibold text-center truncate"
         >
