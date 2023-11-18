@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Tache } from '../../model/Tache';
+import { CardComponent } from '../card/card.component';
+import { DragStateService } from '../../drag-state.service';
 
 @Component({
     selector: 'app-list',
@@ -34,14 +36,34 @@ export class ListComponent {
     protected currentPage: number = 1;
 
     @Input() task_list: Tache[] = [];
+    @ViewChildren('taskComponents') taskComponents!: QueryList<CardComponent>;
+    isDragging: boolean = false;
 
-    constructor() {
+    constructor(private dragStateService: DragStateService) {
+        dragStateService.dragging$.subscribe(
+            (isDragging) => (this.isDragging = isDragging),
+        );
+
         this.maxPage = Math.ceil(this.task_list.length / this.itemsPerPage);
         if (this.maxPage === 0) {
             this.maxPage = 1;
         }
     }
 
+    onDrop(event: DragEvent) {
+        event.preventDefault();
+        this.dragStateService.stopDragging();
+
+        const itemId = parseInt(event.dataTransfer!.getData('text/plain'));
+        const targetChildComponent = this.taskComponents.find(
+            (c) => c.task.id === itemId,
+        );
+        targetChildComponent?.handleDrop();
+    }
+
+    allowDrop(event: DragEvent) {
+        event.preventDefault();
+    }
     get TotalPages(): number {
         this.maxPage = Math.ceil(this.task_list.length / this.itemsPerPage);
         if (this.maxPage === 0) {
