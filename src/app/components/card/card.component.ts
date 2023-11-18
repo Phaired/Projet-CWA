@@ -8,6 +8,7 @@ import {
 import { Tache } from '../../model/Tache';
 import { LocalStorageRepositoryService } from '../../repository/local-storage-repository.service';
 import { ModalComponent } from '../modal/modal.component';
+import { DragStateService } from '../../drag-state.service';
 
 @Component({
     selector: 'app-card',
@@ -35,8 +36,23 @@ export class CardComponent {
     @ViewChild('taskDeleteModal', { static: true })
     taskDeleteModal!: ModalComponent;
 
-    constructor(private local_storage: LocalStorageRepositoryService) {}
+    constructor(
+        private local_storage: LocalStorageRepositoryService,
+        private dragStateService: DragStateService,
+    ) {}
 
+    onDragStart(event: DragEvent, itemId: number) {
+        event.dataTransfer!.setData('text/plain', itemId.toString());
+        this.dragStateService.startDragging();
+    }
+
+    onDragEnd() {
+        this.dragStateService.stopDragging();
+    }
+
+    handleDrop() {
+        this.showDeleteTaskModal();
+    }
     getTask() {
         return this.task;
     }
