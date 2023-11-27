@@ -1,4 +1,4 @@
-<div class="h-90v w-100">
+<div class="h-90v w-full">
     <div class="grid justify-items-center">
         <h1 class="text-4xl font-bold mb-4 mt-10">
             Ajouter une <span class="text-blue-700"> Tâche </span>
@@ -6,7 +6,7 @@
 
         <br />
 
-        <div class="mb-6 grid justify-items-center">
+        <div class="mb-6 w-full grid justify-items-center">
             <label
                 for="task-name"
                 class="block mb-2 text-lg font-medium text-gray-900"
@@ -25,7 +25,7 @@
             </p>
         </div>
 
-        <div class="mb-6 grid justify-items-center">
+        <div class="mb-6 grid w-full justify-items-center">
             <label
                 for="description"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -43,7 +43,7 @@
             </p>
         </div>
 
-        <div class="mb-6 grid justify-items-center">
+        <div class="mb-6 grid w-full justify-items-center">
             <label
                 for="priority"
                 class="block mb-2 text-lg font-medium text-gray-900"
@@ -62,7 +62,7 @@
             />
         </div>
 
-        <div class="mb-6 grid justify-items-center">
+        <div class="mb-6 grid w-full justify-items-center">
             <label
                 for="date"
                 class="block mb-2 text-lg font-medium text-gray-900"
@@ -81,7 +81,7 @@
             </p>
         </div>
 
-        <div class="mb-6 grid justify-items-center">
+        <div class="mb-6 grid w-full justify-items-center">
             <label
                 for="color"
                 class="block mb-2 text-lg font-medium text-gray-900"
@@ -96,12 +96,12 @@
             />
         </div>
 
-        <div class="mb-6 grid justify-items-center">
+        <div class="mb-6 grid w-full justify-items-center">
             <button
                 type="submit"
                 (click)="createTask()"
                 id="addTask"
-                class="text-white bg-blue-700 hover:bg-blue-800 click:bg-blue-900 hover:scale-110 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="text-white w-full bg-blue-700 hover:bg-blue-800 click:bg-blue-900 hover:scale-110 focus:outline-none font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
                 Ajouter la Tâche
             </button>
