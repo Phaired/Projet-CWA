@@ -81,6 +81,8 @@ export class HomeComponent {
                 break;
             case 'weak':
                 break;
+            case 'medium':
+                break;
             case 'high':
                 break;
         }
