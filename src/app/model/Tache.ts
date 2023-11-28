@@ -38,6 +38,10 @@ export class Tache implements ITache {
         this.color = color;
     }
 
+    /**
+     * Ajoute une couleur à la tâche en fonction de sa priorité
+     * @param priority
+     */
     public static colorToPriority(priority: Priority): string {
         switch (priority) {
             case Priority.BASE:

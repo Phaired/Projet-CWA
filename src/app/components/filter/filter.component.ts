@@ -25,6 +25,12 @@ export class FilterComponent {
         console.log(this.task_list);
     }
 
+    /**
+     * Ordonne la liste des tâches en fonction du type d'ordre et de l'ordre
+     * @param orderType
+     * @param order
+     * @private
+     */
     private orderBy(orderType: string, order: number) {
         switch (orderType) {
             case 'date': {
@@ -50,6 +56,11 @@ export class FilterComponent {
         }
     }
 
+    /**
+     * Filtre la liste des tâches en fonction du status
+     * @param status
+     * @private
+     */
     private filterByStatus(status: string) {
         switch (status) {
             case 'on': {
@@ -74,6 +85,11 @@ export class FilterComponent {
         }
     }
 
+    /**
+     * Filtre la liste des tâches en fonction de la priorité
+     * @param priority
+     * @private
+     */
     private filterByPriority(priority: string) {
         switch (priority) {
             case 'weak': {
