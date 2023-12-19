@@ -1,3 +1,8 @@
+Afin de lancer le projet
+Faire `npm i` puis `npm run prepare` pour installer les dépendances.
+
+Ensuite `npm run start` puis aller sur `http://localhost:4200/`.
+
 # Cadmium - Application de Gestion des Tâches
 
 <h2>Table des matières :</h2>
