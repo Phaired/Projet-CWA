@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
@@ -23,7 +22,6 @@ import { DeleteTaskComponent } from './pages/delete-task/delete-task.component';
         AppComponent,
         HomeComponent,
         ContactComponent,
-        FooterComponent,
         NavbarComponent,
         CreateTaskComponent,
         ModalComponent,
